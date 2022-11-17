@@ -39,7 +39,7 @@ namespace TeknoParrotUi.Common.InputProfiles.Helpers
             }
             return 0;
         }
-        public static byte CalculateAxisOrTriggerGasBrakeXinput(XInputButton button, State state, byte minVal = 0, byte maxVal = 255)
+        public static byte CalculateAxisOrTriggerGasBrakeXinput(XInputButton button, State state)
         {
             if (button.IsButton)
             {
@@ -51,83 +51,72 @@ namespace TeknoParrotUi.Common.InputProfiles.Helpers
 
             if (button.IsLeftThumbX)
             {
-                return JvsHelper.CalculateGasPos(state.Gamepad.LeftThumbX, true, false, minVal, maxVal);
+                return JvsHelper.CalculateGasPos(state.Gamepad.LeftThumbX, true, false);
             }
 
             if (button.IsLeftThumbY)
             {
-                return JvsHelper.CalculateGasPos(state.Gamepad.LeftThumbY, true, false, minVal, maxVal);
+                return JvsHelper.CalculateGasPos(state.Gamepad.LeftThumbY, true, false);
             }
 
             if (button.IsRightThumbX)
             {
-                return JvsHelper.CalculateGasPos(state.Gamepad.RightThumbX, true, false, minVal, maxVal);
+                return JvsHelper.CalculateGasPos(state.Gamepad.RightThumbX, true, false);
             }
 
             if (button.IsRightThumbY)
             {
-                return JvsHelper.CalculateGasPos(state.Gamepad.RightThumbY, true, false, minVal, maxVal);
+                return JvsHelper.CalculateGasPos(state.Gamepad.RightThumbY, true, false);
             }
-
-            byte result = 0;
 
             if (button.IsLeftTrigger)
             {
-                result = state.Gamepad.LeftTrigger;
+                return state.Gamepad.LeftTrigger;
             }
 
             if (button.IsRightTrigger)
             {
-                result = state.Gamepad.RightTrigger;
+                return state.Gamepad.RightTrigger;
             }
-
-            if (result < minVal)
-                result = minVal;
-            if (result > maxVal)
-                result = maxVal;
-            return result;
+            return 0;
         }
 
         public static byte CalculateWheelPosXinput(XInputButton button, State state, bool useSto0Z, int stoozPercent,
             GameProfile gameProfile)
         {
-            int minValWheel = 0;
-            int maxValWheel = 255;
+            int minVal = 0;
+            int maxVal = 255;
             switch (gameProfile.EmulationProfile)
             {
                 case EmulationProfile.SegaInitialD:
                 case EmulationProfile.SegaInitialDLindbergh:
-                    minValWheel = 0x1F;
-                    maxValWheel = 0xE1;
+                    minVal = 0x1F;
+                    maxVal = 0xE1;
                     break;
                 case EmulationProfile.SegaSonicAllStarsRacing:
-                    minValWheel = 0x1D;
-                    maxValWheel = 0xED;
-                    break;
-                case EmulationProfile.HummerExtreme:
-                    minValWheel = 0x1D;
-                    maxValWheel = 0xE0;
+                    minVal = 0x1D;
+                    maxVal = 0xED;
                     break;
             }
 
             if (button.IsLeftThumbX)
             {
-                return useSto0Z ? JvsHelper.CalculateSto0ZWheelPos(state.Gamepad.LeftThumbX, stoozPercent, true) : JvsHelper.CalculateWheelPos(state.Gamepad.LeftThumbX, true, false, minValWheel, maxValWheel);
+                return useSto0Z ? JvsHelper.CalculateSto0ZWheelPos(state.Gamepad.LeftThumbX, stoozPercent, true) : JvsHelper.CalculateWheelPos(state.Gamepad.LeftThumbX, true, false, minVal, maxVal);
             }
 
             if (button.IsLeftThumbY)
             {
-                return useSto0Z ? JvsHelper.CalculateSto0ZWheelPos(state.Gamepad.LeftThumbY, stoozPercent, true) : JvsHelper.CalculateWheelPos(state.Gamepad.LeftThumbY, true, false, minValWheel, maxValWheel);
+                return useSto0Z ? JvsHelper.CalculateSto0ZWheelPos(state.Gamepad.LeftThumbY, stoozPercent, true) : JvsHelper.CalculateWheelPos(state.Gamepad.LeftThumbY, true, false, minVal, maxVal);
             }
 
             if (button.IsRightThumbX)
             {
-                return useSto0Z ? JvsHelper.CalculateSto0ZWheelPos(state.Gamepad.RightThumbX, stoozPercent, true) : JvsHelper.CalculateWheelPos(state.Gamepad.RightThumbX, true, false, minValWheel, maxValWheel);
+                return useSto0Z ? JvsHelper.CalculateSto0ZWheelPos(state.Gamepad.RightThumbX, stoozPercent, true) : JvsHelper.CalculateWheelPos(state.Gamepad.RightThumbX, true, false, minVal, maxVal);
             }
 
             if (button.IsRightThumbY)
             {
-                return useSto0Z ? JvsHelper.CalculateSto0ZWheelPos(state.Gamepad.RightThumbY, stoozPercent, true) : JvsHelper.CalculateWheelPos(state.Gamepad.RightThumbY, true, false, minValWheel, maxValWheel);
+                return useSto0Z ? JvsHelper.CalculateSto0ZWheelPos(state.Gamepad.RightThumbY, stoozPercent, true) : JvsHelper.CalculateWheelPos(state.Gamepad.RightThumbY, true, false, minVal, maxVal);
             }
 
             return 0x7F;

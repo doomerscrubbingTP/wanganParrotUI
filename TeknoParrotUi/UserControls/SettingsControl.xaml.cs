@@ -40,10 +40,8 @@ namespace TeknoParrotUi.UserControls
             ChkFullAxisBrake.IsChecked = Lazydata.ParrotData.FullAxisBrake;
             ChkReverseAxisGas.IsChecked = Lazydata.ParrotData.ReverseAxisGas;
             ChkReverseAxisBrake.IsChecked = Lazydata.ParrotData.ReverseAxisBrake;
-            textBoxExitGameKey.Text = Lazydata.ParrotData.ExitGameKey;
-            textBoxPauseGameKey.Text = Lazydata.ParrotData.PauseGameKey;
-            textBoxScoreSubmissionID.Text = Lazydata.ParrotData.ScoreSubmissionID;
-            textBoxScoreCollapseKey.Text = Lazydata.ParrotData.ScoreCollapseGUIKey;
+            GunSensitivityPlayer1.Value = Lazydata.ParrotData.GunSensitivityPlayer1;
+            GunSensitivityPlayer2.Value = Lazydata.ParrotData.GunSensitivityPlayer2;
 
             UiColour.ItemsSource = new SwatchesProvider().Swatches.Select(a => a.Name).ToList();
             UiColour.SelectedItem = Lazydata.ParrotData.UiColour;
@@ -103,10 +101,16 @@ namespace TeknoParrotUi.UserControls
                 if (ChkReverseAxisBrake.IsChecked.HasValue)
                     Lazydata.ParrotData.ReverseAxisBrake = ChkReverseAxisBrake.IsChecked.Value;
 
-                Lazydata.ParrotData.ExitGameKey = textBoxExitGameKey.Text;
-                Lazydata.ParrotData.PauseGameKey = textBoxPauseGameKey.Text;
-                Lazydata.ParrotData.ScoreSubmissionID = textBoxScoreSubmissionID.Text;
-                Lazydata.ParrotData.ScoreCollapseGUIKey = textBoxScoreCollapseKey.Text;
+                if (GunSensitivityPlayer1.Value != null)
+                {
+                    Lazydata.ParrotData.GunSensitivityPlayer1 = (int) GunSensitivityPlayer1.Value;
+                }
+
+                if (GunSensitivityPlayer2.Value != null)
+                {
+                    Lazydata.ParrotData.GunSensitivityPlayer2 = (int) GunSensitivityPlayer2.Value;
+                }
+
                 Lazydata.ParrotData.SaveLastPlayed = ChkSaveLastPlayed.IsChecked.Value;
                 Lazydata.ParrotData.UseDiscordRPC = ChkUseDiscordRPC.IsChecked.Value;
                 Lazydata.ParrotData.CheckForUpdates = ChkCheckForUpdates.IsChecked.Value;
@@ -168,11 +172,6 @@ namespace TeknoParrotUi.UserControls
         private void ChkTheme_Checked(object sender, RoutedEventArgs e)
         {
             App.LoadTheme(UiColour.SelectedItem.ToString(), ChkUiDarkMode.IsChecked.Value, ChkUiHolidayThemes.IsChecked.Value);
-        }
-
-        private void BtnVKCPage(object sender, RoutedEventArgs e)
-        {
-            Process.Start("https://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes");
         }
     }
 }

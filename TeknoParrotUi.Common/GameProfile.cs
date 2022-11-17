@@ -4,19 +4,11 @@ using System.Xml.Serialization;
 
 namespace TeknoParrotUi.Common
 {
-    public enum InputApi
-    {
-        DirectInput,
-        XInput,
-        RawInput
-    }
-
     [Serializable]
     [XmlRoot("GameProfile")]
     public class GameProfile
     {
         public string GameName { get; set; }
-        public string GameGenre { get; set; }
         public string GamePath { get; set; }
         public string TestMenuParameter { get; set; }
         public bool TestMenuIsExecutable { get; set; }
@@ -37,32 +29,19 @@ namespace TeknoParrotUi.Common
         public int GameProfileRevision { get; set; }
         public bool HasSeparateTestMode { get; set; }
         public bool Is64Bit { get; set; }
-        public bool TestExecIs64Bit { get; set; }
         public EmulatorType EmulatorType { get; set; }
+        public bool GunGame { get; set; }
         public bool Patreon { get; set; }
         public bool RequiresAdmin { get; set; }
         public int msysType { get; set; }
         public bool InvertedMouseAxis { get; set; }
-        public bool GunGame { get; set; }
         public bool DevOnly { get; set; }
         public string ExecutableName { get; set; }
-        public string ExecutableName2 { get; set; }
-        public bool HasTwoExecutables { get; set; } = false;
-        public bool LaunchSecondExecutableFirst { get; set; } = false;
-        public string SecondExecutableArguments { get; set; }
-        public string GamePath2 { get; set; }
         // advanced users only!
         public string CustomArguments { get; set; }
         public short xAxisMin { get; set; } = 0;
         public short xAxisMax { get; set; } = 255;
         public short yAxisMin { get; set; } = 0;
         public short yAxisMax { get; set; } = 255;
-        public byte GasAxisMin { get; set; } = 0;
-        public byte GasAxisMax { get; set; } = 255;
-
-        public override string ToString()
-        {
-            return GameName;
-        }
     }
 }

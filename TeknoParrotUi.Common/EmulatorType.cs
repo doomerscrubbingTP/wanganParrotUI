@@ -20,7 +20,5 @@ namespace TeknoParrotUi.Common
         OpenParrotKonami,
         //SegaTools
         SegaTools,
-        // New Linux Loader
-        ElfLdr2
     }
 }

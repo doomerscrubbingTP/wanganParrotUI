@@ -52,31 +52,17 @@ public class DiscordRPC
 
     public static void UpdatePresence(RichPresence presence)
     {
-        try
-        {
-            if (presence == null)
-            {
-                ClearPresence();
-            }
-            else
-            {
-                var presencestruct = presence.GetStruct();
-                UpdatePresenceNative(ref presencestruct);
-                presence.FreeMem();
-            }
-        }
-        catch (Exception e)
-        {
-            // skip?
-        }
+        var presencestruct = presence.GetStruct();
+        UpdatePresenceNative(ref presencestruct);
+        presence.FreeMem();
     }
 
     public static void StartOrShutdown()
     {
-        try
+        // download the DLL if it doesn't exist
+        if (!File.Exists(RPC_PATH))
         {
-            // download the DLL if it doesn't exist
-            if (!File.Exists(RPC_PATH))
+            try
             {
                 var request = (HttpWebRequest)WebRequest.Create("https://github.com/discordapp/discord-rpc/releases/download/v3.4.0/discord-rpc-win.zip");
                 request.Timeout = 10000;
@@ -98,23 +84,23 @@ public class DiscordRPC
                     }
                 }
             }
-
-            // calling Initialize / Shutdown if the library is already/hasn't been initialized is fine.
-            if (Lazydata.ParrotData.UseDiscordRPC)
+            catch (Exception e)
             {
-                Initialize(APP_ID, IntPtr.Zero, false, null);
-            }
-            else
-            {
-                Shutdown();
+                // don't bother showing a messagebox or anything
+                Lazydata.ParrotData.UseDiscordRPC = false;
+                JoystickHelper.Serialize();
+                return;
             }
         }
-        catch (Exception e)
+
+        // calling Initialize / Shutdown if the library is already/hasn't been initialized is fine.
+        if (Lazydata.ParrotData.UseDiscordRPC)
         {
-            // don't bother showing a messagebox or anything
-            Lazydata.ParrotData.UseDiscordRPC = false;
-            JoystickHelper.Serialize();
-            return;
+            Initialize(APP_ID, IntPtr.Zero, false, null);
+        }
+        else 
+        {
+            Shutdown();
         }
     }
 

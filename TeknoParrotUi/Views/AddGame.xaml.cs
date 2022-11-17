@@ -47,9 +47,9 @@ namespace TeknoParrotUi.Views
 
                 var item = new ListBoxItem
                 {
-                    Content = gameProfile.GameName +
-                                (gameProfile.Patreon ? " (Patreon)" : "") +
-                                (thirdparty ? $" (Third-Party - {gameProfile.EmulatorType})" : "") +
+                    Content = gameProfile.GameName + 
+                                (gameProfile.Patreon ? " (Patreon)" : "") + 
+                                (thirdparty ? $" (Third-Party - {gameProfile.EmulatorType})" : "") + 
                                 (existing ? " (added)" : ""),
                     Tag = gameProfile
                 };
@@ -58,21 +58,7 @@ namespace TeknoParrotUi.Views
                 if (existing)
                     item.Foreground = Brushes.Green;
 
-                var genreItem = (ComboBoxItem)GenreBox.SelectedValue;
-                var genreContent = (string)genreItem.Content;
-
-                if (genreContent == "All")
-                    stockGameList.Items.Add(item);
-                else if (gameProfile.GameGenre == genreContent)
-                    stockGameList.Items.Add(item);
-            }
-
-            if (stockGameList.SelectedIndex < 0)
-            {
-                gameIcon.Source = Library.defaultIcon;
-                _selected = new GameProfile();
-                AddButton.IsEnabled = false;
-                DeleteButton.IsEnabled = false;
+                stockGameList.Items.Add(item);
             }
         }
 
@@ -86,10 +72,7 @@ namespace TeknoParrotUi.Views
             if (stockGameList.SelectedIndex < 0) return;
 
             e.Handled = true;
-
-            var gameItem = (ListBoxItem)stockGameList.SelectedValue;
-            _selected = (GameProfile)gameItem.Tag;
-            //_selected = GameProfileLoader.GameProfiles[stockGameList.SelectedIndex];
+            _selected = GameProfileLoader.GameProfiles[stockGameList.SelectedIndex];
             Library.UpdateIcon(_selected.IconName.Split('/')[1], ref gameIcon);
 
             var added = ((ListBoxItem)stockGameList.SelectedItem).Foreground == Brushes.Green;
@@ -141,8 +124,8 @@ namespace TeknoParrotUi.Views
                 // ignored
             }
 
-            //_library.ListUpdate();
-            _library.listRefreshNeeded = true;
+            _library.ListUpdate();
+
             _contentControl.Content = _library;
         }
     }

@@ -7,8 +7,7 @@ namespace TeknoParrotUi.Common
         Text = 0,
         Numeric = 1,
         Bool = 2,
-        Dropdown = 3,
-        Slider = 4
+        Dropdown = 3
     }
     public class FieldInformation
     {
@@ -16,9 +15,6 @@ namespace TeknoParrotUi.Common
         public string FieldName { get; set; }
         public string FieldValue { get; set; }
         public FieldType FieldType { get; set; }
-        public int FieldMin { get; set; }
-        public int FieldMax { get; set; }
         public List<string> FieldOptions { get; set; }
-        public string Hint { get; set; }
     }
 }

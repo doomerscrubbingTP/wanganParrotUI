@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using Keys = System.Windows.Forms.Keys;
+using System.Xml;
 
 namespace TeknoParrotUi.Common
 {
@@ -25,17 +26,12 @@ namespace TeknoParrotUi.Common
                 foreach (var file in origProfiles)
                 {
                     var gameProfile = JoystickHelper.DeSerializeGameProfile(file, false);
-
-                    if (gameProfile == null)
-                        continue;
-
+                    if (gameProfile == null) continue;
                     var isThereOther = userProfiles.FirstOrDefault(x => Path.GetFileName(x) == Path.GetFileName(file));
                     if (!string.IsNullOrWhiteSpace(isThereOther))
                     {
                         var other = JoystickHelper.DeSerializeGameProfile(isThereOther, true);
-
-                        if (other == null)
-                            continue;
+                        if (other == null) continue;
 
                         if (other.GameProfileRevision == gameProfile.GameProfileRevision)
                         {
@@ -52,32 +48,15 @@ namespace TeknoParrotUi.Common
 
                             for (int i = 0; i < other.JoystickButtons.Count; i++)
                             {
-                                var button = gameProfile.JoystickButtons.FirstOrDefault(x => x.ButtonName == other.JoystickButtons[i].ButtonName);
-
+                                var button = gameProfile.JoystickButtons.FirstOrDefault(x =>
+                                    x.ButtonName == other.JoystickButtons[i].ButtonName);
                                 if (button != null)
                                 {
                                     button.DirectInputButton = other.JoystickButtons[i].DirectInputButton;
                                     button.XInputButton = other.JoystickButtons[i].XInputButton;
-                                    button.RawInputButton = other.JoystickButtons[i].RawInputButton;
                                     button.BindNameDi = other.JoystickButtons[i].BindNameDi;
                                     button.BindNameXi = other.JoystickButtons[i].BindNameXi;
-                                    button.BindNameRi = other.JoystickButtons[i].BindNameRi;
                                     button.BindName = other.JoystickButtons[i].BindName;
-
-                                    // Clear DolphinBar binds without DevicePath
-                                    if (button.BindNameRi != null && button.BindNameRi.Contains("DolphinBar") && string.IsNullOrWhiteSpace(button.RawInputButton?.DevicePath))
-                                    {
-                                        var riButton = new RawInputButton
-                                        {
-                                            DevicePath = "",
-                                            DeviceType = RawDeviceType.None,
-                                            MouseButton = RawMouseButton.None,
-                                            KeyboardKey = Keys.None
-                                        };
-
-                                        button.RawInputButton = riButton;
-                                        button.BindNameRi = "";
-                                    }
                                 }
                             }
 
@@ -96,7 +75,6 @@ namespace TeknoParrotUi.Common
                             gameProfile.IconName = "Icons/" + Path.GetFileNameWithoutExtension(file) + ".png";
                             gameProfile.GameInfo = JoystickHelper.DeSerializeDescription(file);
                             gameProfile.GamePath = other.GamePath;
-                            gameProfile.GamePath2 = other.GamePath2;
                             JoystickHelper.SerializeGameProfile(gameProfile);
                             profileList.Add(gameProfile);
                             continue;
@@ -106,12 +84,6 @@ namespace TeknoParrotUi.Common
                     gameProfile.IconName = "Icons/" + Path.GetFileNameWithoutExtension(file) + ".png";
                     gameProfile.GameInfo = JoystickHelper.DeSerializeDescription(file);
                     profileList.Add(gameProfile);
-
-                    if (!File.Exists(gameProfile.IconName))
-                    {
-                        Debug.WriteLine($"{gameProfile.FileName} icon is missing! - {gameProfile.IconName}");
-                    }
-
                 }
 
                 GameProfiles = profileList.OrderBy(x => x.GameName).ToList();

@@ -13,13 +13,10 @@ namespace TeknoParrotUi.Common.Pipes
 
         public bool Running;
         public int Control = 0x00, Control2 = 0x00;
-        public byte SleepTime = 15;
 
         public virtual void Start()
         {
-            if (Running)
-                return;
-
+            if (Running) return;
             Running = true;
             pipe = new Thread(TransmitThread);
             pipe.Start();
@@ -42,7 +39,7 @@ namespace TeknoParrotUi.Common.Pipes
                 Control = 0x00;
                 Control2 = 0x00;
                 Transmit();
-                Thread.Sleep(SleepTime);
+                Thread.Sleep(15);
             }
         }
     }
