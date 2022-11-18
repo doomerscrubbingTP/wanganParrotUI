@@ -71,12 +71,18 @@ namespace TeknoParrotUi.Common.InputProfiles.Helpers
 
             if (button.IsLeftTrigger)
             {
-                return state.Gamepad.LeftTrigger;
+                var value = state.Gamepad.LeftTrigger;
+                int valueint = (int)value;
+                valueint = valueint / 3;
+                return (byte)valueint;
             }
 
             if (button.IsRightTrigger)
             {
-                return state.Gamepad.RightTrigger;
+                var value = state.Gamepad.RightTrigger;
+                int valueint = (int)value;
+                valueint = valueint / 3;
+                return (byte)valueint;
             }
             return 0;
         }
