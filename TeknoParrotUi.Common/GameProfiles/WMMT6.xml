@@ -1,91 +1,216 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <GameProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <GameName>Wangan Midnight Maximum Tune 6</GameName>
-  <GamePath/>
-  <TestMenuParameter/>
+  <GameGenre>Racing</GameGenre>
+  <GamePath>D:\path\to\your\wmn6r.exe</GamePath>
+  <TestMenuParameter />
   <TestMenuIsExecutable>false</TestMenuIsExecutable>
-  <ExtraParameters/>
-  <TestMenuExtraParameters/>
-  <IconName>Icons\WMMT6.png</IconName>
-  <EmulationProfile>NamcoWmmt5</EmulationProfile>
-  <GameProfileRevision>5</GameProfileRevision>
-  <Is64Bit>true</Is64Bit>
-  <HasSeparateTestMode>false</HasSeparateTestMode>
-  <EmulatorType>TeknoParrot</EmulatorType>
-  <DevOnly>true</DevOnly>
-  <ExecutableName>wmn6r.exe</ExecutableName>
+  <ExtraParameters />
+  <TestMenuExtraParameters />
+  <IconName>Icons/WMMT6.png</IconName>
+  <ResetHint>false</ResetHint>
   <ConfigValues>
     <FieldInformation>
       <CategoryName>General</CategoryName>
-      <FieldName>XInput</FieldName>
-      <FieldValue>0</FieldValue>
-      <FieldType>Bool</FieldType>
+      <FieldName>Input API</FieldName>
+      <FieldValue>DirectInput</FieldValue>
+      <FieldType>Dropdown</FieldType>
+      <FieldMin>0</FieldMin>
+      <FieldMax>0</FieldMax>
+      <FieldOptions>
+        <string>DirectInput</string>
+        <string>XInput</string>
+      </FieldOptions>
     </FieldInformation>
     <FieldInformation>
       <CategoryName>General</CategoryName>
       <FieldName>FreePlay</FieldName>
       <FieldValue>1</FieldValue>
       <FieldType>Bool</FieldType>
+      <FieldMin>0</FieldMin>
+      <FieldMax>0</FieldMax>
+      <FieldOptions />
     </FieldInformation>
     <FieldInformation>
       <CategoryName>General</CategoryName>
-      <FieldName>TerminalEmulator</FieldName>
+      <FieldName>BypassTerminalCheck</FieldName>
       <FieldValue>1</FieldValue>
       <FieldType>Bool</FieldType>
-    </FieldInformation>
-    <FieldInformation>
-      <CategoryName>TerminalEmuConfig</CategoryName>
-      <FieldName>2P Event Mode</FieldName>
-      <FieldValue>0</FieldValue>
-      <FieldType>Bool</FieldType>
-    </FieldInformation>
-    <FieldInformation>
-      <CategoryName>TerminalEmuConfig</CategoryName>
-      <FieldName>4P Event Mode</FieldName>
-      <FieldValue>0</FieldValue>
-      <FieldType>Bool</FieldType>
-    </FieldInformation>
-    <FieldInformation>
-      <CategoryName>General</CategoryName>
-      <FieldName>TerminalMode</FieldName>
-      <FieldValue>0</FieldValue>
-      <FieldType>Bool</FieldType>
+      <FieldMin>0</FieldMin>
+      <FieldMax>0</FieldMax>
+      <FieldOptions />
     </FieldInformation>
     <FieldInformation>
       <CategoryName>General</CategoryName>
       <FieldName>WhiteScreenFix</FieldName>
       <FieldValue>0</FieldValue>
       <FieldType>Bool</FieldType>
+      <FieldMin>0</FieldMin>
+      <FieldMax>0</FieldMax>
+      <FieldOptions />
     </FieldInformation>
     <FieldInformation>
       <CategoryName>General</CategoryName>
       <FieldName>Windowed</FieldName>
       <FieldValue>0</FieldValue>
       <FieldType>Bool</FieldType>
+      <FieldMin>0</FieldMin>
+      <FieldMax>0</FieldMax>
+      <FieldOptions />
     </FieldInformation>
     <FieldInformation>
-        <CategoryName>General</CategoryName>
-        <FieldName>SkipMovies</FieldName>
-        <FieldValue>0</FieldValue>
-        <FieldType>Bool</FieldType>
+      <CategoryName>Tune</CategoryName>
+      <FieldName>Force Full Tune</FieldName>
+      <FieldValue>0</FieldValue>
+      <FieldType>Bool</FieldType>
+      <FieldMin>0</FieldMin>
+      <FieldMax>0</FieldMax>
+      <FieldOptions />
+    </FieldInformation>
+    <FieldInformation>
+      <CategoryName>Save</CategoryName>
+      <FieldName>Save Per Custom Name</FieldName>
+      <FieldValue>0</FieldValue>
+      <FieldType>Bool</FieldType>
+      <FieldMin>0</FieldMin>
+      <FieldMax>0</FieldMax>
+      <FieldOptions />
+    </FieldInformation>
+    <FieldInformation>
+      <CategoryName>Save</CategoryName>
+      <FieldName>Save Per Car</FieldName>
+      <FieldValue>0</FieldValue>
+      <FieldType>Bool</FieldType>
+      <FieldMin>0</FieldMin>
+      <FieldMax>0</FieldMax>
+      <FieldOptions />
     </FieldInformation>
     <FieldInformation>
       <CategoryName>General</CategoryName>
       <FieldName>Use Keyboard/Button For Axis</FieldName>
       <FieldValue>0</FieldValue>
       <FieldType>Bool</FieldType>
+      <FieldMin>0</FieldMin>
+      <FieldMax>0</FieldMax>
+      <FieldOptions />
     </FieldInformation>
     <FieldInformation>
-        <CategoryName>General</CategoryName>
-        <FieldName>CustomName</FieldName>
-        <FieldValue>Reaver</FieldValue>
-        <FieldType>Text</FieldType>
+      <CategoryName>General</CategoryName>
+      <FieldName>CustomName</FieldName>
+      <FieldValue>WanganParrot</FieldValue>
+      <FieldType>Text</FieldType>
+      <FieldMin>0</FieldMin>
+      <FieldMax>0</FieldMax>
+      <FieldOptions />
     </FieldInformation>
     <FieldInformation>
-        <CategoryName>General</CategoryName>
-        <FieldName>NetworkAdapterIP</FieldName>
-        <FieldValue>0.0.0.0</FieldValue>
-        <FieldType>Text</FieldType>
+      <CategoryName>General</CategoryName>
+      <FieldName>SpamCustomName</FieldName>
+      <FieldValue>1</FieldValue>
+      <FieldType>Bool</FieldType>
+      <FieldMin>0</FieldMin>
+      <FieldMax>0</FieldMax>
+      <FieldOptions />
+    </FieldInformation>
+    <FieldInformation>
+      <CategoryName>General</CategoryName>
+      <FieldName>NetworkAdapterIP</FieldName>
+      <FieldValue>0.0.0.0</FieldValue>
+      <FieldType>Text</FieldType>
+      <FieldMin>0</FieldMin>
+      <FieldMax>0</FieldMax>
+      <FieldOptions />
+    </FieldInformation>
+    <FieldInformation>
+      <CategoryName>General</CategoryName>
+      <FieldName>Custom Meter</FieldName>
+      <FieldValue>Default</FieldValue>
+      <FieldType>Dropdown</FieldType>
+      <FieldMin>0</FieldMin>
+      <FieldMax>0</FieldMax>
+      <FieldOptions>
+        <string>Default</string>
+        <string>White Meter</string>
+        <string>Yellow Meter</string>
+        <string>Red Meter</string>
+        <string>Blue Meter</string>
+        <string>Carbon Meter</string>
+        <string>Metallic Meter (Black)</string>
+        <string>Metallic Meter (Red)</string>
+        <string>Cyber Meter (Blue)</string>
+        <string>Cyber Meter (Red)</string>
+        <string>Aluminium Meter (Blue)</string>
+        <string>Aluminium Meter (Red)</string>
+        <string>Camoflage Meter (Green)</string>
+        <string>Camoflage Meter (Brown)</string>
+        <string>Bronze Meter (Red)</string>
+        <string>Bronze Meter (Brown)</string>
+        <string>Pirate Meter (Red)</string>
+        <string>Pirate Meter (Blue)</string>
+        <string>Fire Meter (Red)</string>
+        <string>Fire Meter (Blue)</string>
+        <string>Silver Meter</string>
+        <string>Gold Meter</string>
+        <string>Special Meter</string>
+        <string>Steampunk Meter (Gold)</string>
+        <string>Steampunk Meter (Green)</string>
+        <string>Dragon Meter (Gold)</string>
+        <string>Dragon Meter (Blue)</string>
+        <string>Holo Meter (Blue)</string>
+        <string>Holo Meter (Orange)</string>
+        <string>New Story Meter 1</string>
+        <string>New Story Meter 2</string>
+        <string>New Story Meter 3</string>
+        <string>New Story Meter 4</string>
+        <string>New Story Meter 5</string>
+        <string>New Story Meter 6</string>
+      </FieldOptions>
+    </FieldInformation>
+    <FieldInformation>
+      <CategoryName>General</CategoryName>
+      <FieldName>Custom Soundtrack</FieldName>
+      <FieldValue>Default</FieldValue>
+      <FieldType>Dropdown</FieldType>
+      <FieldMin>0</FieldMin>
+      <FieldMax>0</FieldMax>
+      <FieldOptions>
+        <string>Default</string>
+        <string>Maximum Tune 3/DX/DX+</string>
+        <string>10 Outrun</string>
+        <string>Maximum Tune 1/2</string>
+        <string>Maximum Tune R</string>
+        <string>Maximum Tune 4</string>
+        <string>Maximum Tune 5/DX/DX+</string>
+      </FieldOptions>
+    </FieldInformation>
+    <FieldInformation>
+      <CategoryName>Tune</CategoryName>
+      <FieldName>Force Neon</FieldName>
+      <FieldValue>0</FieldValue>
+      <FieldType>Bool</FieldType>
+      <FieldMin>0</FieldMin>
+      <FieldMax>0</FieldMax>
+      <FieldOptions />
+    </FieldInformation>
+    <FieldInformation>
+      <CategoryName>Tune</CategoryName>
+      <FieldName>Select Neon</FieldName>
+      <FieldValue>Green</FieldValue>
+      <FieldType>Dropdown</FieldType>
+      <FieldMin>0</FieldMin>
+      <FieldMax>0</FieldMax>
+      <FieldOptions>
+        <string>Green</string>
+        <string>Blue</string>
+        <string>Red</string>
+        <string>Yellow</string>
+        <string>Purple</string>
+        <string>Green Pattern</string>
+        <string>Blue Pattern</string>
+        <string>Red Pattern</string>
+        <string>Yellow Pattern</string>
+        <string>Purple Pattern</string>
+      </FieldOptions>
     </FieldInformation>
   </ConfigValues>
   <JoystickButtons>
@@ -106,6 +231,16 @@
       <InputMapping>Analog0</InputMapping>
       <AnalogType>Wheel</AnalogType>
     </JoystickButtons>
+	<JoystickButtons>
+      <ButtonName>Wheel Axis Right (Keyboard/Button Only)</ButtonName>
+      <InputMapping>Analog0</InputMapping>
+      <AnalogType>Wheel</AnalogType>
+    </JoystickButtons>
+    <JoystickButtons>
+      <ButtonName>Wheel Axis Half Turn (Hold Down)</ButtonName>
+      <InputMapping>Analog19</InputMapping>
+      <AnalogType>KeyboardWheelHalfValue</AnalogType>
+	</JoystickButtons>
     <JoystickButtons>
       <ButtonName>Gas</ButtonName>
       <InputMapping>Analog2</InputMapping>
@@ -168,15 +303,25 @@
       <ButtonName>Interuption Switch Button</ButtonName>
       <InputMapping>ExtensionOne1</InputMapping>
     </JoystickButtons>
-    <JoystickButtons>
-      <ButtonName>Wheel Axis Right (Keyboard/Button Only)</ButtonName>
-      <InputMapping>Analog0</InputMapping>
-      <AnalogType>Wheel</AnalogType>
-    </JoystickButtons>
-    <JoystickButtons>
-      <ButtonName>Wheel Axis Half Turn (Hold Down)</ButtonName>
-      <InputMapping>Analog19</InputMapping>
-      <AnalogType>KeyboardWheelHalfValue</AnalogType>
-    </JoystickButtons>
   </JoystickButtons>
+  <EmulationProfile>NamcoWmmt5</EmulationProfile>
+  <GameProfileRevision>18</GameProfileRevision>
+  <HasSeparateTestMode>false</HasSeparateTestMode>
+  <Is64Bit>true</Is64Bit>
+  <TestExecIs64Bit>false</TestExecIs64Bit>
+  <EmulatorType>OpenParrot</EmulatorType>
+  <Patreon>false</Patreon>
+  <RequiresAdmin>false</RequiresAdmin>
+  <msysType>0</msysType>
+  <InvertedMouseAxis>false</InvertedMouseAxis>
+  <GunGame>false</GunGame>
+  <DevOnly>false</DevOnly>
+  <ExecutableName>wmn6r.exe</ExecutableName>
+  <HasTwoExecutables>false</HasTwoExecutables>
+  <LaunchSecondExecutableFirst>false</LaunchSecondExecutableFirst>
+  <GamePath2 />
+  <xAxisMin>0</xAxisMin>
+  <xAxisMax>255</xAxisMax>
+  <yAxisMin>0</yAxisMin>
+  <yAxisMax>255</yAxisMax>
 </GameProfile>
